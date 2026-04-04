@@ -23,3 +23,16 @@ Commands:
 
 /view	Show your current profile	Displays all stored info about you
 
+Version 2 - Advanced Features
+
+/optimize [job_link]	Optimize resume for specific job posting
+
+/interview [role]	Start AI interview simulation for given role
+
+/feedback	Get AI feedback on your interview answers
+
+/improve	AI suggests improvements to your resume
+
+/export	Download resume in multiple formats (PDF, DOCX, TXT)
+
+/history	See all your previous resumes and interviews
