@@ -9,7 +9,7 @@ User → Telegram Bot → FastAPI Backend → PostgreSQL → Qwen AI
 
 Version 1 - Core Features
 
-Command	What it does	Example
+Commands:
 
 /start	Create profile, welcome message	Hi! Let's build your resume. Tell me about yourself.
 
