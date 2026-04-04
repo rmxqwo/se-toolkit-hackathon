@@ -1,5 +1,4 @@
 # se-toolkit-hackathon
-CareerMate - AI Resume Builder & Interview Coach
 
 User → Telegram Bot → FastAPI Backend → PostgreSQL → Qwen AI
                                                     ↓
