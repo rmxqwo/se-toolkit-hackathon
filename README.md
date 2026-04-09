@@ -114,50 +114,7 @@ Once running, visit **http://localhost:8000/docs** for interactive Swagger API d
 | `POST` | `/api/interview/start` | Start mock interview |
 | `POST` | `/api/interview/answer` | Submit answer, get feedback |
 
----
 
-## Project Structure
-
-```
-se-toolkit-hackathon/
-├── app/
-│   ├── __init__.py
-│   ├── main.py                 # FastAPI app entry point
-│   ├── config.py               # Settings & env config
-│   ├── db.py                   # Database setup & sessions
-│   ├── api/
-│   │   ├── __init__.py
-│   │   ├── users.py            # User CRUD endpoints
-│   │   ├── resumes.py          # Resume generation & optimization
-│   │   └── interview.py        # Interview simulation
-│   ├── core/
-│   │   ├── __init__.py
-│   │   └── rate_limiter.py     # Rate limiting middleware
-│   ├── models/
-│   │   ├── __init__.py
-│   │   ├── base.py             # Base model & mixins
-│   │   ├── user.py             # UserProfile model
-│   │   └── resume.py           # ResumeHistory, Skill, Experience, Education
-│   ├── schemas/
-│   │   ├── __init__.py
-│   │   └── resume.py           # Pydantic request/response schemas
-│   └── services/
-│       ├── __init__.py
-│       ├── qwen.py             # Qwen AI API integration
-│       └── pdf_generator.py    # ReportLab PDF generation
-├── frontend/
-│   ├── index.html              # Main HTML page
-│   └── static/
-│       ├── css/style.css       # Styles
-│       └── js/app.js           # Frontend JavaScript
-├── generated_pdfs/             # Output PDF directory
-├── requirements.txt
-├── .env.example
-├── .env
-└── README.md
-```
-
----
 
 ## Qwen AI Prompt Structures
 
