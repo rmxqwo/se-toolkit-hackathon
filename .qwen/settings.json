@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(venv\\scripts\\activate)",
+      "Bash(pip install *)",
+      "Bash(c:\\users\\eldar\\desktop\\github\\software-engineering-toolkit\\se-toolkit-hackathon\\venv\\scripts\\pip.exe *)",
+      "Bash(c:\\users\\eldar\\desktop\\github\\software-engineering-toolkit\\se-toolkit-hackathon\\venv\\scripts\\uvicorn.exe *)",
+      "Bash(timeout *)",
+      "Bash(python *)",
+      "Bash(pg_isready *)",
+      "Bash(curl *)"
+    ]
+  },
+  "$version": 3
+}

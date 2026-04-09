@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Python Developer Resume - Resume</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; padding: 40px; }
+        .resume { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; padding: 40px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .contact { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 15px; }
+        .body { padding: 40px; }
+        .section { margin-bottom: 30px; }
+        .section h2 { color: #2563eb; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 20px; }
+        .skill-tag { display: inline-block; background: #e0e7ff; padding: 6px 12px; border-radius: 20px; margin: 5px; font-size: 14px; }
+        .exp-item, .project-item, .edu-item { margin-bottom: 20px; }
+        .exp-header, .project-header, .edu-header { font-weight: bold; margin-bottom: 5px; }
+        .exp-date, .project-date, .edu-date { float: right; color: #64748b; font-weight: normal; }
+        .project-tech { color: #64748b; font-size: 14px; margin-bottom: 8px; }
+        .summary { background: #f8fafc; padding: 20px; border-radius: 8px; line-height: 1.6; }
+        @media (max-width: 600px) { body { padding: 20px; } .header { padding: 20px; } .body { padding: 20px; } .exp-date { float: none; display: block; } }
+    </style>
+</head>
+<body>
+    <div class="resume">
+        <div class="header">
+            <h1>Иван Петров</h1>
+            <div class="title">Senior Python Developer</div>
+            <div class="contact">📧 ivan.petrov@example.com 📞 +7-999-123-4567 📍 Москва, Россия</div>
+        </div>
+        <div class="body">
+            <div class="section"><h2>Professional Summary</h2><div class="summary">Experienced Python developer specializing in backend development</div></div>
+            <div class="section"><h2>Technical Skills</h2><div><span class="skill-tag">Python</span><span class="skill-tag">FastAPI</span><span class="skill-tag">PostgreSQL</span></div></div>
+            <div class="section"><h2>Work Experience</h2>
+        <div class="exp-item">
+            <div class="exp-header"><strong>Senior Python Developer</strong> at Tech Corp <span class="exp-date">Jan 2020 - Present</span></div>
+            <p>Led development of microservices architecture</p>
+        </div></div>
+            <div class="section"><h2>Projects</h2>
+        <div class="project-item">
+            <div class="project-header"><strong>AI Resume Builder</strong> <span class="project-date">Jan 2024 - Present</span></div>
+            <div class="project-tech">Technologies: Python, FastAPI, React</div>
+            <p>Built an AI-powered resume builder using FastAPI and React</p>
+            <a href="https://github.com/project" target="_blank">🔗 Project Link</a>
+        </div></div>
+            <div class="section"><h2>Education</h2>
+        <div class="edu-item">
+            <div class="edu-header"><strong>Bachelor of Science</strong> in Computer Science <span class="edu-date">Jun 2019</span></div>
+            <div>Moscow State University</div>
+        </div></div>
+        </div>
+    </div>
+</body>
+</html>
