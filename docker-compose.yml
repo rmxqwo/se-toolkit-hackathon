@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: resume-builder-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: resume_builder
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - resume-builder-network
+
+  # FastAPI Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: resume-builder-app
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:${POSTGRES_PASSWORD:-postgres}@postgres:5432/resume_builder
+      QWEN_API_KEY: ${QWEN_API_KEY}
+      QWEN_MODEL: ${QWEN_MODEL:-qwen-plus}
+      APP_HOST: 0.0.0.0
+      APP_PORT: 8000
+      DEBUG: ${DEBUG:-False}
+      RATE_LIMIT_PER_MINUTE: ${RATE_LIMIT_PER_MINUTE:-30}
+      PDF_DEFAULT_FONT: ${PDF_DEFAULT_FONT:-Helvetica}
+      PDF_PAGE_SIZE: ${PDF_PAGE_SIZE:-A4}
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    volumes:
+      - ./generated_pdfs:/app/generated_pdfs
+      - ./generated_resumes:/app/generated_resumes
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - resume-builder-network
+
+  # Database Migration Service (runs once on startup)
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: resume-builder-migrate
+    command: python app/db/init_db.py
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:${POSTGRES_PASSWORD:-postgres}@postgres:5432/resume_builder
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - resume-builder-network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  resume-builder-network:
+    driver: bridge
